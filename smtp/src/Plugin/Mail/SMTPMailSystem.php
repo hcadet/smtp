@@ -276,9 +276,9 @@ class SMTPMailSystem implements MailInterface, ContainerFactoryPluginInterface {
     }
 
     if (empty($from)) {
-      $from = 'hcadet@reingold.com';
+      $from = $message['from'];
       // The $from address might contain the "name" part. If it does, split it,
-      // since PHPMailer expects $from to be the raw email address$message['from'].
+      // since PHPMailer expects $from to be the raw email address.
       $matches = [];
       if (preg_match('/^(.*)\s\<(.*)\>$/', $from, $matches)) {
         $from = $matches[2];
